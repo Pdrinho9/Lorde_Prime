@@ -81,6 +81,69 @@
       .hero h2{ font-size:26px; }
       .card img{ height:180px; }
     }
+    /* --- WHATSAPP PREMIUM BUTTON --- */
+
+.whatsapp-container {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Balão de texto */
+.whatsapp-bubble {
+  background: var(--glass);
+  border: 1px solid rgba(212, 175, 55, 0.5); /* dourado */
+  color: var(--gold);
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 18px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  animation: bubblePulse 3.8s infinite;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+
+/* Botão redondo */
+.whatsapp-btn {
+  width: 65px;
+  height: 65px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 18px rgba(37, 211, 102, 0.7);
+  transition: 0.25s;
+}
+
+.whatsapp-btn img {
+  width: 38px;
+  height: 38px;
+}
+
+/* Hover */
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 22px rgba(37, 211, 102, 0.9);
+}
+
+/* Animação do texto */
+@keyframes bubblePulse {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.75; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Em celular o balão some pra não atrapalhar */
+@media (max-width: 600px) {
+  .whatsapp-bubble {
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -100,29 +163,28 @@
   <section id="produtos" class="produtos">
     <!-- EXEMPLO DE PRODUTO: copie e cole o bloco .card para adicionar -->
     <div class="card">
-      <img src="https://via.placeholder.com/800x800?text=Flamengo" alt="Flamengo">
-      <h3>Camisa Flamengo</h3>
-      <div class="price">R$ 129,00</div>
+      <img src="Brasil.jpg.webp" alt="Brasil">
+      <h3>Camisa Brasil</h3>
+      <div class="price">R$ 140,00</div>
       <a class="btn" href="#contato">Comprar</a>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/800x800?text=Corinthians" alt="Corinthians">
-      <h3>Camisa Corinthians</h3>
-      <div class="price">R$ 129,00</div>
+      <img src="Barcelona.jpg.png" alt="Barcelona">
+      <h3>Camisa Barcelona</h3>
+      <div class="price">R$ 140,00</div>
       <a class="btn" href="#contato">Comprar</a>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/800x800?text=Palmeiras" alt="Palmeiras">
-      <h3>Camisa Palmeiras</h3>
-      <div class="price">R$ 129,00</div>
+      <img src="Grêmio.jpg.webp" alt="Grêmio">
+      <h3>Camisa Grêmio</h3>
+      <div class="price">R$ 140,00</div>
       <a class="btn" href="#contato">Comprar</a>
     </div>
   </section>
 
   <footer id="contato">
-    <p>Finalizar compra via WhatsApp: <strong>(19)98805-9428</strong></p>
     <p>© Lorde Prime</p>
   </footer>
 
@@ -134,7 +196,12 @@
     }
     // Ex.: setPrice('.price', 'R$ 119,00');
   </script>
+  <!-- Botão flutuante WhatsApp com balão -->
+<div class="whatsapp-container">
+    <div class="whatsapp-bubble">Fale conosco no WhatsApp!</div>
+    <a href="https://wa.me/5519988059428" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+</div>
 </body>
 </html>
-
-
