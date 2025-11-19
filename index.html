@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lorde Prime - Camisas Premium</title>
+  <link rel="icon" type="image/png" href="LP.jpg">
   <style>
     :root{
       --gold:#d4af37;
@@ -144,11 +145,34 @@
     display: none;
   }
 }
+.logo-site {
+  height: 42px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.45));
+}
+/* Logo com texto no header */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(212,175,55,0.35);
+}
   </style>
 </head>
 <body>
   <header>
-    <h1>Lorde Prime</h1>
+    <h1><div class="logo-wrapper">
+    <img src="LP.jpg" alt="Lorde Prime" class="logo-site">
+    <span class="logo-text">Lorde Prime</span>
+</div>
+</h1>
     <nav>
       <a href="#produtos">Produtos</a>
       <a href="#contato">Contato</a>
@@ -166,21 +190,21 @@
       <img src="Brasil.jpg.webp" alt="Brasil">
       <h3>Camisa Brasil</h3>
       <div class="price">R$ 140,00</div>
-      <a class="btn" href="#contato">Comprar</a>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Brasil.%20Tamanho:%20">Comprar</a>
     </div>
 
     <div class="card">
       <img src="Barcelona.jpg.png" alt="Barcelona">
       <h3>Camisa Barcelona</h3>
       <div class="price">R$ 140,00</div>
-      <a class="btn" href="#contato">Comprar</a>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Barcelona.%20Tamanho:%20">Comprar</a>
     </div>
 
     <div class="card">
       <img src="Grêmio.jpg.webp" alt="Grêmio">
       <h3>Camisa Grêmio</h3>
       <div class="price">R$ 140,00</div>
-      <a class="btn" href="#contato">Comprar</a>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Grêmio.%20Tamanho:%20">Comprar</a>
     </div>
   </section>
 
