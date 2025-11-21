@@ -3,142 +3,262 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Camisas de time Premium com qualidade tailandesa 1.1. Envio seguro e rastreado.">
   <title>Lorde Prime - Camisas Premium</title>
 
-  <!-- Ícone da aba -->
   <link rel="icon" type="image/png" href="img/LP.jpg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
     :root{
-      --gold:#d4af37;
-      --glass: rgba(0,0,0,0.55);
+      --gold: #d4af37;
+      --gold-light: #f9d86e;
+      --dark: #0a0a0a;
+      --glass: rgba(20, 20, 20, 0.85);
+      --glass-border: rgba(212,175,55,0.3);
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, Arial, sans-serif;
+    
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
       background: url('img/background.jpg') center/cover no-repeat fixed;
-      color:#fff;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-    }
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 24px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(4px);
-    }
-    nav a{ color:#fff; text-decoration:none; margin-left:18px; font-weight:600; }
-
-    .logo-site { height:42px; filter: drop-shadow(0 0 6px rgba(212,175,55,0.45)); }
-
-    .logo-wrapper {
+      color: #fff;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+    }
+    
+    /* Overlay escuro para melhorar leitura sobre o background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
     }
 
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none;}
+    .logo-site { height: 45px; border-radius: 50%; border: 2px solid var(--gold); }
     .logo-text {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--gold);
       letter-spacing: 1px;
-      text-shadow: 0 0 6px rgba(212,175,55,0.35);
+      text-transform: uppercase;
     }
 
-    .hero{
-      text-align:center;
-      padding:72px 20px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.20));
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
     }
-    .hero h2{ font-size:38px; margin:4px 0 8px; color:var(--gold); }
-    .hero p{ margin:0; color:#e9e9e9; font-size:18px; }
+    nav a:hover { color: var(--gold); }
 
-    .produtos{
-      max-width:1100px;
-      margin: 24px auto;
-      padding: 18px;
-      width:calc(100% - 40px);
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap:18px;
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+    .hero h2 {
+      font-size: 42px;
+      margin: 0 0 15px;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(212,175,55,0.2);
+    }
+    .hero p { margin: 0; color: #ccc; font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+    /* TRUST BAR (Benefícios) */
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #eee;
+      background: rgba(255,255,255,0.05);
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .trust-item i { color: var(--gold); font-size: 18px; }
+
+    /* PRODUTOS */
+    .section-title { text-align: center; margin-top: 40px; font-size: 26px; color: #fff; }
+    
+    .produtos {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
     }
 
-    .card{
-      background: rgba(0,0,0,0.52);
-      border-radius:10px;
-      padding:12px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    .card {
+      background: var(--glass);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+
+    /* Badge de Promoção */
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
     }
 
-    .card img{ width:100%; height:260px; object-fit:cover; border-radius:8px; }
-
-    .price{ color:var(--gold); font-weight:800; }
-
-    .btn{
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:8px;
-      background:var(--gold);
-      color:#000;
-      text-decoration:none;
-      font-weight:700;
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
     }
 
-    footer{
-      margin-top:auto;
-      padding:18px;
-      text-align:center;
-      background: rgba(0,0,0,0.35);
+    .card h3 { margin: 10px 0; font-size: 18px; font-weight: 600; }
+
+    .price-container {
+      margin: 10px 0 15px;
+    }
+    .old-price { text-decoration: line-through; color: #777; font-size: 14px; margin-right: 8px; }
+    .price { color: var(--gold); font-weight: 800; font-size: 20px; }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      background: linear-gradient(45deg, var(--gold), #b59021);
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .btn:hover { filter: brightness(1.15); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+
+    /* FAQ SECTION */
+    .faq {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .faq h3 { color: var(--gold); text-align: center; margin-bottom: 30px; font-size: 24px;}
+    
+    .faq-item {
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+    .faq-question { font-weight: bold; margin-bottom: 8px; display: block; color: #eee; }
+    .faq-answer { font-size: 14px; color: #aaa; line-height: 1.5; }
+
+    /* FOOTER */
+    footer {
+      margin-top: auto;
+      padding: 30px;
+      text-align: center;
+      background: #000;
+      border-top: 1px solid #333;
+      font-size: 13px;
+      color: #666;
     }
 
-    /* WHATSAPP BUTTON */
+    /* WHATSAPP FLOATING */
     .whatsapp-container {
       position: fixed;
-      bottom: 22px;
-      right: 22px;
-      z-index: 9999;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
       display: flex;
       align-items: center;
       gap: 12px;
     }
     .whatsapp-bubble {
-      background: var(--glass);
-      border: 1px solid rgba(212,175,55,0.5);
-      color: var(--gold);
-      padding: 10px 16px;
-      font-size: 14px;
-      border-radius: 18px;
+      background: #fff;
+      color: #000;
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 20px;
       font-weight: 600;
-      backdrop-filter: blur(4px);
-      animation: bubblePulse 3.8s infinite;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: bubblePulse 3s infinite;
+      display: none; /* Oculto em mobile muito pequeno para não atrapalhar */
     }
+    @media(min-width: 768px) { .whatsapp-bubble { display: block; } }
+    
     .whatsapp-btn {
-      width: 65px;
-      height: 65px;
+      width: 60px; height: 60px;
       background: #25d366;
       border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 18px rgba(37,211,102,0.7);
-      transition: 0.25s;
+      display: flex; justify-content: center; align-items: center;
+      box-shadow: 0 0 20px rgba(37,211,102,0.4);
+      transition: 0.3s;
+      font-size: 32px; color: #fff; text-decoration: none;
     }
-    .whatsapp-btn img {
-      width: 38px;
-      height: 38px;
-    }
+    .whatsapp-btn:hover { transform: scale(1.1); }
+
     @keyframes bubblePulse {
-      0% { opacity:1; transform:translateY(0); }
-      50% { opacity:0.75; transform:translateY(-4px); }
-      100% { opacity:1; transform:translateY(0); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Responsividade */
+    @media(max-width: 600px) {
+      .hero h2 { font-size: 32px; }
+      .trust-bar { flex-direction: column; gap: 10px; padding: 10px; }
+      .trust-item { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -146,54 +266,106 @@
 <body>
 
   <header>
-    <div class="logo-wrapper">
-      <img src="img/LP.jpg" class="logo-site" alt="Lorde Prime">
+    <a href="#" class="logo-wrapper">
+      <img src="img/LP.jpg" class="logo-site" alt="Lorde Prime Logo">
       <span class="logo-text">Lorde Prime</span>
-    </div>
-
+    </a>
     <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#contato">Contato</a>
+      <a href="#produtos">Catálogo</a>
+      <a href="#faq">Dúvidas</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Camisas Premium de Time</h2>
-    <p>Qualidade que surpreende • Envio com rastreio</p>
+    <h2>Vista a grandeza.</h2>
+    <p>Camisas de time Importadas Premium 1.1. Qualidade de jogador, preço de torcedor.</p>
+    
+    <div class="trust-bar">
+      <div class="trust-item">
+        <i class="fas fa-truck"></i> Envio Rastreável
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-shield-alt"></i> Pagamento Seguro
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-medal"></i> Qualidade Garantida
+      </div>
+    </div>
   </section>
+
+  <h2 class="section-title">Destaques da Semana</h2>
 
   <section id="produtos" class="produtos">
+    
     <div class="card">
-      <img src="img/Brasil.jpg" alt="Brasil">
-      <h3>Camisa Brasil</h3>
-      <div class="price">R$ 140,00</div>
-      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Brasil.%20Tamanho:%20">Comprar</a>
+      <span class="badge">Mais Vendida</span>
+      <img src="img/Brasil.jpg" alt="Camisa Brasil Nike Amarela">
+      <h3>Seleção Brasileira 24/25</h3>
+      <div class="price-container">
+        <span class="old-price">R$ 289,90</span>
+        <span class="price">R$ 139,90</span>
+      </div>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Gostaria%20de%20pedir%20a%20Camisa%20do%20Brasil.%20Poderia%20me%20ajudar%20com%20o%20tamanho?" target="_blank">
+        <i class="fab fa-whatsapp"></i> Comprar Agora
+      </a>
     </div>
 
     <div class="card">
-      <img src="img/Barcelona.jpg" alt="Barcelona">
-      <h3>Camisa Barcelona</h3>
-      <div class="price">R$ 140,00</div>
-      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Barcelona.%20Tamanho:%20">Comprar</a>
+      <span class="badge">Lançamento</span>
+      <img src="img/Barcelona.jpg" alt="Camisa Barcelona Rosa">
+      <h3>Barcelona 25/26</h3>
+      <div class="price-container">
+        <span class="old-price">R$ 289,90</span>
+        <span class="price">R$ 139,90</span>
+      </div>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Gostaria%20de%20pedir%20a%20Camisa%20do%20Barcelona.%20Quais%20tamanhos%20disponíveis?" target="_blank">
+        <i class="fab fa-whatsapp"></i> Comprar Agora
+      </a>
     </div>
 
     <div class="card">
-      <img src="img/Gremio.jpg" alt="Gremio">
-      <h3>Camisa Gremio</h3>
-      <div class="price">R$ 140,00</div>
-      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Quero%20comprar%20a%20Camisa%20Gremio.">Comprar</a>
+      <span class="badge">Oferta</span>
+      <img src="img/Gremio.jpg" alt="Camisa Gremio Azul">
+      <h3>Grêmio 25/26</h3>
+      <div class="price-container">
+        <span class="old-price">R$ 289,90</span>
+        <span class="price">R$ 139,90</span>
+      </div>
+      <a class="btn" href="https://wa.me/5519988059428?text=Olá!%20Gostaria%20de%20pedir%20a%20Camisa%20do%20Gremio.%20Como%20funciona%20o%20envio?" target="_blank">
+        <i class="fab fa-whatsapp"></i> Comprar Agora
+      </a>
+    </div>
+
+  </section>
+
+  <section id="faq" class="faq">
+    <h3>Perguntas Frequentes</h3>
+    
+    <div class="faq-item">
+      <span class="faq-question">Qual o prazo de entrega?</span>
+      <span class="faq-answer">Nossos produtos são importados e enviados direto da fábrica. O prazo médio é de 15 a 25 dias úteis com rastreio completo dos Correios.</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-question">A qualidade é boa?</span>
+      <span class="faq-answer">Trabalhamos apenas com linha Premium (Tailandesa 1:1), o mesmo tecido, etiquetas e detalhes das camisas oficiais de loja.</span>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-question">Tem garantia?</span>
+      <span class="faq-answer">Sim! Se o produto chegar com defeito ou tamanho errado, realizamos a troca sem custo adicional.</span>
     </div>
   </section>
 
-  <footer id="contato">
-    <p>© Lorde Prime</p>
+  <footer>
+    <p>© 2024 Lorde Prime Imports. Todos os direitos reservados.</p>
+    <p style="opacity: 0.5; margin-top: 5px;">Enviamos para todo o Brasil 🇧🇷</p>
   </footer>
 
-  <!-- WHATSAPP BUTTON -->
   <div class="whatsapp-container">
-    <div class="whatsapp-bubble">Fale conosco no WhatsApp!</div>
+    <div class="whatsapp-bubble">Atendimento Online!</div>
     <a href="https://wa.me/5519988059428" class="whatsapp-btn" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      <i class="fab fa-whatsapp"></i>
     </a>
   </div>
 
